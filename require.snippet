@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        require
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut to require a module
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        req
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Type of variable (var, const, let)</ToolTip>
+          <Default>MyType</Default>
+        </Literal>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Variable Name</ToolTip>
+          <Default>MyVariable</Default>
+        </Literal>
+        <Literal>
+          <ID>path</ID>
+          <ToolTip>Path to module</ToolTip>
+          <Default>MyPath</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[$type$ $name$ = require('$path$');]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
