@@ -3,9 +3,8 @@
   <CodeSnippet Format="1.0.0">
     <Header>
       <SnippetTypes>
-        <SnippetType>
-          Expansion, SurroundsWith
-        </SnippetType>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
       </SnippetTypes>
       <Title>
         jQuery.ready
@@ -23,8 +22,20 @@
       </Shortcut>
     </Header>
     <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>element</ID>
+          <ToolTip>Element Name</ToolTip>
+          <Default>MyElement</Default>
+        </Literal>
+        <Literal>
+          <ID>optional</ID>
+          <ToolTip>Optional Parameter(s)</ToolTip>
+          <Default>MyParameter</Default>
+        </Literal>
+      </Declarations>
       <Code Language="javascript">
-        <![CDATA[$$().ready(function() {
+        <![CDATA[$$('#$element$').ready(function($optional$) {
         //TODO fill this out
         });]]>
       </Code>

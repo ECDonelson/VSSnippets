@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        request.execute(long)
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for request.execute
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        reqexlong
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>request</ID>
+          <ToolTip>Request Name</ToolTip>
+          <Default>MyRequest</Default>
+        </Literal>
+        <Literal>
+          <ID>action</ID>
+          <ToolTip>Action Name</ToolTip>
+          <Default>MyAction</Default>
+        </Literal>
+        <Literal>
+          <ID>procedureName</ID>
+          <ToolTip>Stored Procedure Name</ToolTip>
+          <Default>MyProcedure</Default>
+        </Literal>
+        <Literal>
+          <ID>recordSets</ID>
+          <ToolTip>RecordSets Name</ToolTip>
+          <Default>MyRecordSets</Default>
+        </Literal>
+        <Literal>
+          <ID>recordData</ID>
+          <ToolTip>RecordData Name</ToolTip>
+          <Default>MyRecordData</Default>
+        </Literal>
+        <Literal>
+          <ID>recordObject</ID>
+          <ToolTip>RecordObject Name</ToolTip>
+          <Default>MyRecordObject</Default>
+        </Literal>
+        <Literal>
+          <ID>return</ID>
+          <ToolTip>Return Name</ToolTip>
+          <Default>MyReturn</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+    <![CDATA[$request$.$action$('$procedureName$').then(function ($recordSets$) {
+                $recordSets$.recordsets.forEach(function ($recordData$) {
+                    $recordData$.forEach(function ($recordObject$) {
+                        $return$.push($recordObject$);
+                    });
+                });
+                callback(null, returnValue);
+             }).catch(function (err) {
+                 console.log(err);
+                 callback(err, null);
+             }).then(function () {
+                 sql.close();
+             });]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

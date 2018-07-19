@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        request.direction
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut to fill out request
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        req
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>request</ID>
+          <ToolTip>Request Name</ToolTip>
+          <Default>MyRequest</Default>
+        </Literal>
+        <Literal>
+          <ID>direction</ID>
+          <ToolTip>Direction Name</ToolTip>
+          <Default>MyDirection</Default>
+        </Literal>
+        <Literal>
+          <ID>parameterName</ID>
+          <ToolTip>Parameter Name</ToolTip>
+          <Default>MyParameter</Default>
+        </Literal>
+        <Literal>
+          <ID>dataType</ID>
+          <ToolTip>Data Type</ToolTip>
+          <Default>MyType</Default>
+        </Literal>
+        <Literal>
+          <ID>object</ID>
+          <ToolTip>Object Name</ToolTip>
+          <Default>MyObject</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[$request$.$direction$('$parameterName$', sql.$dataType$, $object$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

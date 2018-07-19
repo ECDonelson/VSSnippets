@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        dataCall
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for data call with mssql
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        sdata
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Function Name</ToolTip>
+          <Default>MyFunction</Default>
+        </Literal>
+        <Literal>
+          <ID>parameter</ID>
+          <ToolTip>Parameter Name</ToolTip>
+          <Default>MyParameter</Default>
+        </Literal>
+        <Literal>
+          <ID>callback</ID>
+          <ToolTip>Callback Name</ToolTip>
+          <Default>MyCallback</Default>
+        </Literal>
+        <Literal>
+          <ID>connection</ID>
+          <ToolTip>Connection Name</ToolTip>
+          <Default>MyConnection</Default>
+        </Literal>
+        <Literal>
+          <ID>config</ID>
+          <ToolTip>Config Function Name</ToolTip>
+          <Default>MyConfig</Default>
+        </Literal>
+        <Literal>
+          <ID>return</ID>
+          <ToolTip>Return Value/Object Name</ToolTip>
+          <Default>MyReturn</Default>
+        </Literal>
+        <Literal>
+          <ID>request</ID>
+          <ToolTip>Request Name</ToolTip>
+          <Default>MyRequest</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[function $name$($parameter$, $callback$) {
+                    var $connection$ = new sql.connect($config$(), function (err) {
+                        if (err) {
+                            alert(err);
+                            console.log(err);
+                        } else {
+                            var $return$ = [];
+                            var $request$ = new sql.Request($connection$);
+
+                            //TODO use request shortcut here
+                            
+                            //TODO use request.execute short/long here
+                        }
+                    });
+                }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

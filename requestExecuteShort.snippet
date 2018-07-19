@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        request.execute(short)
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for request.execute
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        reqexshort
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>request</ID>
+          <ToolTip>Request Name</ToolTip>
+          <Default>MyRequest</Default>
+        </Literal>
+        <Literal>
+          <ID>action</ID>
+          <ToolTip>Action Name</ToolTip>
+          <Default>MyAction</Default>
+        </Literal>
+        <Literal>
+          <ID>procedureName</ID>
+          <ToolTip>Stored Procedure Name</ToolTip>
+          <Default>MyProcedure</Default>
+        </Literal>
+        <Literal>
+          <ID>return</ID>
+          <ToolTip>Return Name</ToolTip>
+          <Default>MyReturn</Default>
+        </Literal>
+        <Literal>
+          <ID>callback</ID>
+          <ToolTip>Callback Name</ToolTip>
+          <Default>MyCallback</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[$request$.$action$('$procedureName$').then(function ($return$) {
+                    $callback$(null, $return$);
+                 }).catch(function (err) {
+                    console.log(err);
+                    callback(err, null);
+                 }).then(function () {
+                    sql.close();
+                 });]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

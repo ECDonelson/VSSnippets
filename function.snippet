@@ -4,34 +4,40 @@
     <Header>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
       </SnippetTypes>
       <Title>
-        DOMContentLoaded
+        function
       </Title>
       <Author>
         Cody Donelson
       </Author>
       <Description>
-        Shortcut for JavaScript's DOMContentLoaded event listener
+        Shortcut for function with parameter
       </Description>
       <HelpUrl>
       </HelpUrl>
       <Shortcut>
-        DOM
+        func
       </Shortcut>
     </Header>
     <Snippet>
       <Declarations>
         <Literal>
+          <ID>name</ID>
+          <ToolTip>Function Name</ToolTip>
+          <Default>MyFunction</Default>
+        </Literal>
+        <Literal>
           <ID>optional</ID>
-          <ToolTip>Optional Parameter</ToolTip>
+          <ToolTip>Parameter Name</ToolTip>
           <Default>MyParameter</Default>
         </Literal>
       </Declarations>
       <Code Language="javascript">
-        <![CDATA[document.addEventListener('DOMContentLoaded', function ($optional$) {
-          //TODO fill me in here
-        });]]>
+        <![CDATA[function $name$ ($optional$) {
+        
+        }]]>
       </Code>
     </Snippet>
   </CodeSnippet>

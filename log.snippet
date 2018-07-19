@@ -4,34 +4,33 @@
     <Header>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
       </SnippetTypes>
       <Title>
-        DOMContentLoaded
+        console.log
       </Title>
       <Author>
         Cody Donelson
       </Author>
       <Description>
-        Shortcut for JavaScript's DOMContentLoaded event listener
+        Shortcut for console.log with message
       </Description>
       <HelpUrl>
       </HelpUrl>
       <Shortcut>
-        DOM
+        clm
       </Shortcut>
     </Header>
     <Snippet>
       <Declarations>
         <Literal>
-          <ID>optional</ID>
-          <ToolTip>Optional Parameter</ToolTip>
-          <Default>MyParameter</Default>
+          <ID>message</ID>
+          <ToolTip>Message to display</ToolTip>
+          <Default>MyMessage</Default>
         </Literal>
       </Declarations>
       <Code Language="javascript">
-        <![CDATA[document.addEventListener('DOMContentLoaded', function ($optional$) {
-          //TODO fill me in here
-        });]]>
+        <![CDATA[console.log('$message$');]]>
       </Code>
     </Snippet>
   </CodeSnippet>

@@ -30,7 +30,7 @@
         </Literal>
         <Literal>
           <ID>values</ID>
-          <ToolTip>Values Truthy Statement</ToolTip>
+          <ToolTip>Truthy/Falsy Statement</ToolTip>
           <Default>MyValues</Default>
         </Literal>
         <Literal>
@@ -43,44 +43,59 @@
           <ToolTip>Sql Call</ToolTip>
           <Default>MyDatabaseCall</Default>
         </Literal>
+        <Literal>
+          <ID>firstCall</ID>
+          <ToolTip>Initial Callback</ToolTip>
+          <Default>MyInitialCallback</Default>
+        </Literal>
+        <Literal>
+          <ID>callback</ID>
+          <ToolTip>Callback</ToolTip>
+          <Default>MyCallback</Default>
+        </Literal>
+        <Literal>
+          <ID>dataCallCallback</ID>
+          <ToolTip>Callback for data call</ToolTip>
+          <Default>MyDataCallback</Default>
+        </Literal>
       </Declarations>
       <Code Language="javascript">
         <![CDATA[/// <summary>
                  /// </summary>
                  function $name$() {
-                   var callback = removeSelectedItems;
+                   var callback = $callback$;
                    var selectedRows = gridOptions.api.getSelectedRows();
                    var index = 0;
                    var count = selectedRows.length - 1;
 
-                   deleteNextRow();
+                   $firstCall$();
 
-                   function deleteNextRow() {
+                   function $firstCall$() {
                        if (selectedRows.length == 0) {
-                           removeSelectedItems();
+                           $callback$();
                        } else {
                            if ($values$) {
                               //TODO fill in delete call here
-                              $dataCall$($value$, afterDataDelete);
+                              $dataCall$($value$, $dataCallCallback$);
                            } else {
-                               removeSelectedItems();
+                               $callback$();
                            }
                        }
                    }
 
-                   function afterDataDelete(err, returnValue) {
+                   function $dataCallCallback$(err, returnValue) {
                        if (err) {
                            confirm(err.message);
                        }
                        if (index >= count) {
-                           callback();
+                           $callback$();
                        } else {
                            index += 1;
-                           deleteNextRow();
+                           $firstCall$();
                        }
                    }
 
-                   function removeSelectedItems() {
+                   function $callback$() {
                        if (selectedRows.length == 1) {
                            gridOptions.api.updateRowData({ remove: selectedRows });
                            alert('Selected row has been deleted.');
