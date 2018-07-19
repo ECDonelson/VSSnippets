@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        jQuery.on
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for jQuery event emitter
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        on
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>element</ID>
+          <ToolTip>Element Name</ToolTip>
+          <Default>MyElement</Default>
+        </Literal>
+        <Literal>
+          <ID>event</ID>
+          <ToolTip>Event Name</ToolTip>
+          <Default>MyEvent</Default>
+        </Literal>
+        <Literal>
+          <ID>optional</ID>
+          <ToolTip>Optional Name</ToolTip>
+          <Default>MyOptionalParameter</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[/// <summary>
+                /// </summary>
+                  $$('#$element$').on('$event$', function($optional$) {
+                    //TODO fill this out
+                  });]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        sqlConfig
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for sql config Function
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        sql
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>optionalEnvDirectory</ID>
+          <ToolTip>Optional Env Directory</ToolTip>
+          <Default>MyEnvDirectory</Default>
+        </Literal>
+        <Literal>
+          <ID>username</ID>
+          <ToolTip>Username</ToolTip>
+          <Default>MyUserName</Default>
+        </Literal>
+        <Literal>
+          <ID>password</ID>
+          <ToolTip>Password</ToolTip>
+          <Default>MyPassword</Default>
+        </Literal>
+        <Literal>
+          <ID>database</ID>
+          <ToolTip>Database Name</ToolTip>
+          <Default>MyDatabaseName</Default>
+        </Literal>
+        <Literal>
+          <ID>server</ID>
+          <ToolTip>Server Name</ToolTip>
+          <Default>MyServerName</Default>
+        </Literal>
+        <Literal>
+          <ID>domain</ID>
+          <ToolTip>Domain Name</ToolTip>
+          <Default>MyDomain</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[/// <summary>
+                 /// </summary>
+                 function getSqlConfig() {
+                     $optionalEnvDirectory$
+                     sql.close();
+
+                     var config = {
+                         user: $username$,
+                         password: $password$,
+                         database: $database$,
+                         server: $server$,
+                         domain: '$domain$',
+                         options: {
+                             trustedConnection: true,
+                             encrypt: false
+                         }
+                     }
+                     return config;
+                 }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

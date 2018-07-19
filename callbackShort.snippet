@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        callbackShort
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for callback
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        cshort
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Function Name</ToolTip>
+          <Default>MyFunction</Default>
+        </Literal>
+        <Literal>
+          <ID>value</ID>
+          <ToolTip>Return Value Name</ToolTip>
+          <Default>MyReturnValue</Default>
+        </Literal>
+        <Literal>
+          <ID>values</ID>
+          <ToolTip>Value Name(s)</ToolTip>
+          <Default>MyValues</Default>
+        </Literal>
+        <Literal>
+          <ID>completeName</ID>
+          <ToolTip>Function Name on Complete</ToolTip>
+          <Default>MyFinalFunction</Default>
+        </Literal>
+        <Literal>
+          <ID>sqlCall</ID>
+          <ToolTip>Sql Call using MSSQL (npm)</ToolTip>
+          <Default>MySqlFunctionName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[/// <summary>
+                 /// </summary>
+                 function $name$() {
+                   function $callback$ ($value$, err) {
+                     if(err) {
+                       console.log(err);
+                       //For Express send res.render('', { error: err} );
+                       //For Electron alert(err)
+                     } else {
+                       $completeName$($value$);
+                     }
+                   }
+
+                   function $completeName$ ($value$) {
+                     //TODO fill this out
+                   }
+                   $sqlCall$($values$, $callback$);
+                 }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

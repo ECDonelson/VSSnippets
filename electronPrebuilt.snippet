@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        electronPrebuilt
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for Electron prebuilt class
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        elec
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>icon</ID>
+          <ToolTip>Application Icon</ToolTip>
+          <Default>MyIcon</Default>
+        </Literal>
+        <Literal>
+          <ID>extension</ID>
+          <ToolTip>Icon Extension</ToolTip>
+          <Default>MyExtension</Default>
+        </Literal>
+        <Literal>
+          <ID>pageName</ID>
+          <ToolTip>Initial Rendered Page</ToolTip>
+          <Default>MyHTML</Default>
+        </Literal>
+        <Literal>
+          <ID>menu</ID>
+          <ToolTip>Menu module</ToolTip>
+          <Default>MyMenu</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[const electron = require('electron');
+                 const app = electron.app;
+                 const BrowserWindow = electron.BrowserWindow;
+                 const path = require('path');
+                 const url = require('url');
+
+                 //TODO use this if using an env file that needs unlinked
+                 //const fileExists = require('file-exists');
+
+                 // Keep a global reference of the window object, if you don't, the window will
+                 // be closed automatically when the JavaScript object is garbage collected.
+                 let mainWindow;
+
+                 function createWindow() {
+                     const size = require('electron').screen.getPrimaryDisplay().workAreaSize;
+                     // Create the browser window.
+                     mainWindow = new BrowserWindow({ width: size.width, height: size.height, icon: __dirname + './public/images/$icon$.$extension$' });
+
+                     mainWindow.loadURL(url.format({
+                         pathname: path.join(__dirname, './views/shared/$pageName$.html'),
+                         protocol: 'file:',
+                         slashes: true
+                     }));
+
+                     // Emitted when the window is closed.
+                     mainWindow.on('closed', function () {
+                         mainWindow = null;
+
+                         //TODO use this if using an env file that needs unlinked
+                         //var fs = require('fs');
+
+                         //fileExists('C:\\Users\\' + process.env.USERNAME + '\\AppData\\Local\\Temp\\config.env').then(function (exists) {
+                         //    if (exists) {
+                         //        fs.unlink('C:\\Users\\' + process.env.USERNAME + '\\AppData\\Local\\Temp\\config.env', function (err) {
+                         //            if (err) {
+                         //                console.log(err);
+                         //            }
+                         //            mainWindow = null;
+                         //        });
+                         //        fs.unlink('C:\\Users\\' + process.env.USERNAME + '\\AppData\\Local\\Temp\\creds.env', function (err) {
+                         //            if (err) {
+                         //                console.log(err);
+                         //            }
+                         //            mainWindow = null;
+                         //        });
+                         //    } else {
+                         //        mainWindow = null;
+                         //    }
+                         //});
+                     });
+                     require('./$menu$');
+                 }
+
+                 // This method will be called when Electron has finished
+                 // initialization and is ready to create browser windows.
+                 // Some APIs can only be used after this event occurs.
+                 app.on('ready', createWindow);
+
+                 // Quit when all windows are closed.
+                 app.on('window-all-closed', function () {
+                     // On OS X it is common for applications and their menu bar
+                     // to stay active until the user quits explicitly with Cmd + Q
+                     if (process.platform !== 'darwin') {
+                         app.quit();
+                     }
+                 });
+
+                 app.on('activate', function () {
+                     // On OS X it's common to re-create a window in the app when the
+                     // dock icon is clicked and there are no other windows open.
+                     if (loginWindow === null) {
+                         createWindow();
+                     }
+                 });
+
+                 const squirrelCommand = process.argv[1]
+                 switch (squirrelCommand) {
+                     case '--squirrel-install':
+                     case '--squirrel-updated':
+                     case '--squirrel-obsolete':
+                         app.quit()
+                         return true
+                 }
+
+                 // In this file you can include the rest of your app's specific main process
+                 // code. You can also put them in separate files and require them here.]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

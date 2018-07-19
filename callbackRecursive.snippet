@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        callbackRecursive
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for recursive delete callback
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        clong
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Function Name</ToolTip>
+          <Default>MyFunction</Default>
+        </Literal>
+        <Literal>
+          <ID>values</ID>
+          <ToolTip>Values Truthy Statement</ToolTip>
+          <Default>MyValues</Default>
+        </Literal>
+        <Literal>
+          <ID>value</ID>
+          <ToolTip>Value Name</ToolTip>
+          <Default>MyValue</Default>
+        </Literal>
+        <Literal>
+          <ID>dataCall</ID>
+          <ToolTip>Sql Call</ToolTip>
+          <Default>MyDatabaseCall</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[/// <summary>
+                 /// </summary>
+                 function $name$() {
+                   var callback = removeSelectedItems;
+                   var selectedRows = gridOptions.api.getSelectedRows();
+                   var index = 0;
+                   var count = selectedRows.length - 1;
+
+                   deleteNextRow();
+
+                   function deleteNextRow() {
+                       if (selectedRows.length == 0) {
+                           removeSelectedItems();
+                       } else {
+                           if ($values$) {
+                              //TODO fill in delete call here
+                              $dataCall$($value$, afterDataDelete);
+                           } else {
+                               removeSelectedItems();
+                           }
+                       }
+                   }
+
+                   function afterDataDelete(err, returnValue) {
+                       if (err) {
+                           confirm(err.message);
+                       }
+                       if (index >= count) {
+                           callback();
+                       } else {
+                           index += 1;
+                           deleteNextRow();
+                       }
+                   }
+
+                   function removeSelectedItems() {
+                       if (selectedRows.length == 1) {
+                           gridOptions.api.updateRowData({ remove: selectedRows });
+                           alert('Selected row has been deleted.');
+                       } else if (selectedRows.length > 1) {
+                           gridOptions.api.updateRowData({ remove: selectedRows });
+                           alert('Selected rows have been deleted.');
+                       } else {
+                           alert('You must select a row to be deleted.');
+                       }
+                   }
+                }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
