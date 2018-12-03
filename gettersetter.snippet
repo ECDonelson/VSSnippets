@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        getterSetter
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for getter setter 
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        getset
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>getter</ID>
+          <ToolTip>Getter Name</ToolTip>
+          <Default>MyGetter</Default>
+        </Literal>
+        <Literal>
+          <ID>setter</ID>
+          <ToolTip>Setter Name</ToolTip>
+          <Default>MySetter</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[set $setter$($setter$) {
+                     this.constructor.$setter$ = $setter$;
+                 }
+                 get $getter$() {
+                     return this.constructor.$getter$;
+                 }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

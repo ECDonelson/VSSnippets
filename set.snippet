@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        setter
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for setter 
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        set
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>setter</ID>
+          <ToolTip>Setter Name</ToolTip>
+          <Default>MySetter</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[set $setter$($setter$) {
+                     this.constructor.$setter$ = $setter$;
+                 }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

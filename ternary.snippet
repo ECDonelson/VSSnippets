@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>
+        ternary
+      </Title>
+      <Author>
+        Cody Donelson
+      </Author>
+      <Description>
+        Shortcut for ternary opperator
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        tern
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>condit1</ID>
+          <ToolTip>Conditional 1</ToolTip>
+          <Default>MyConditional1</Default>
+        </Literal>
+        <Literal>
+          <ID>condit2</ID>
+          <ToolTip>Conditional 2</ToolTip>
+          <Default>MyConditional2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="javascript">
+        <![CDATA[$condit1$ !== undefined && $condit1$ !== '' ? $condit1$ : $condit2$ = '';]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
